@@ -4,6 +4,10 @@
 
 Kasparro transforms brand data into organic insight. Unlike sterile, spreadsheet-like competitors, Kasparro visualizes data as a "living ecosystem" where brand health is represented by organic growth, clarity, and interconnectedness.
 
+## 🚀 Live Demo
+
+**[View Live Deployment →](https://kasparro.vercel.app)** *(Update with actual URL)*
+
 ## 🌿 Design Philosophy: "Digital Biophilia"
 
 The core concept is "The Living Algorithm" — data is not static, it is organic.
@@ -16,47 +20,40 @@ The core concept is "The Living Algorithm" — data is not static, it is organic
   - Data/UI: Clean sans-serif (Inter) for readability
 - **Motion**: Slow, floating parallax effects, smooth easing, "breathing" UI elements
 
-## 🏗️ Architecture
+## 🏗️ Folder Structure
 
 ```
 kasparro/
 ├── src/
 │   ├── app/
 │   │   ├── (public routes)
-│   │   │   ├── page.tsx           # Homepage
-│   │   │   ├── platform/page.tsx  # Platform overview
-│   │   │   └── about/page.tsx     # About & mission
+│   │   │   ├── page.tsx           # Homepage - Hero, modules, pipeline
+│   │   │   ├── platform/page.tsx  # Product overview - pipeline visualization
+│   │   │   └── about/page.tsx     # Mission, philosophy, vision
 │   │   │
-│   │   ├── app/                   # Dashboard namespace
-│   │   │   ├── layout.tsx         # Dashboard shell with sidebar
+│   │   ├── app/                   # Dashboard namespace (authenticated shell)
+│   │   │   ├── layout.tsx         # Dashboard layout with responsive sidebar
 │   │   │   ├── dashboard/page.tsx # Brand snapshot cards
-│   │   │   ├── audit/page.tsx     # Module sidebar + detail panel
-│   │   │   └── architecture/page.tsx # Pipeline visualization
+│   │   │   ├── audit/page.tsx     # Module sidebar + dynamic detail panel
+│   │   │   └── architecture/page.tsx # System pipeline visualization
 │   │   │
-│   │   ├── globals.css            # Design system
+│   │   ├── globals.css            # Complete design system
 │   │   └── layout.tsx             # Root layout with fonts
 │   │
 │   ├── components/
-│   │   ├── ui/                    # Atomic components (shadcn + custom)
+│   │   ├── ui/                    # Atomic components
 │   │   │   ├── glass-card.tsx     # GlassCard, FeaturedCard, ScoreCircle
 │   │   │   └── [shadcn components]
 │   │   ├── layouts/               # Layout components
 │   │   │   ├── public-header.tsx  # Marketing site header
 │   │   │   ├── public-footer.tsx  # Marketing site footer
-│   │   │   └── app-sidebar.tsx    # Dashboard sidebar
-│   │   └── features/              # Feature-specific components
+│   │   │   └── app-sidebar.tsx    # Dashboard sidebar (responsive)
+│   │   └── features/              # Feature-specific components (reserved)
 │   │
 │   ├── data/                      # Mock JSON database
 │   │   ├── brands.json            # Sample brands
 │   │   ├── modules.json           # Module metadata
-│   │   └── audit-data/            # Per-module audit results
-│   │       ├── content-quality.json
-│   │       ├── technical-seo.json
-│   │       ├── ai-visibility.json
-│   │       ├── keyword-coverage.json
-│   │       ├── competitor-analysis.json
-│   │       ├── citation-network.json
-│   │       └── trust-signals.json
+│   │   └── audit-data/            # Per-module audit results (7 files)
 │   │
 │   ├── types/                     # TypeScript definitions
 │   │   └── index.ts               # All interfaces & helper functions
@@ -70,15 +67,15 @@ kasparro/
 
 ## 🛠️ Tech Stack
 
-| Category | Technology | Why |
-|----------|------------|-----|
-| Framework | Next.js 16 (App Router) | Modern React with great DX |
-| Styling | Tailwind CSS v4 | Utility-first, design tokens |
-| Components | shadcn/ui | Customizable, accessible |
-| Animation | Framer Motion | Declarative, powerful |
-| State | Zustand | Minimal, type-safe |
-| Icons | Lucide React | Modern, consistent |
-| Fonts | Inter + Playfair Display | Clean + Oracle aesthetic |
+| Category | Technology | Rationale |
+|----------|------------|-----------|
+| Framework | Next.js 16 (App Router) | Modern React, great DX, server components |
+| Styling | Tailwind CSS v4 | Utility-first, fast iteration, design tokens |
+| Components | shadcn/ui | Accessible, customizable, not a black box |
+| Animation | Framer Motion | Declarative, performant, UX-purposeful |
+| State | Zustand | Minimal boilerplate, TypeScript-first |
+| Icons | Lucide React | Modern, consistent, tree-shakeable |
+| Fonts | Inter + Playfair Display | Professional body + Oracle-aesthetic headings |
 
 ## 📊 The 7 Audit Modules
 
@@ -92,6 +89,53 @@ kasparro/
 | **Citation Network** | Backlinks & mentions | domain_authority |
 | **Trust Signals** | Credibility markers | trust_score, verification |
 
+## 🎨 Architectural Decisions
+
+### 1. **Component Separation**
+- **UI Primitives** (`/components/ui/`): Atomic, reusable components (GlassCard, Button)
+- **Layouts** (`/components/layouts/`): Page structure (Header, Footer, Sidebar)
+- **Features** (`/components/features/`): Reserved for complex business logic components
+
+### 2. **Data-Driven Audit UI**
+The `/app/audit` page renders entirely from JSON:
+```typescript
+// No hardcoded JSX for insights/issues/recommendations
+moduleData.insights.map((insight) => <InsightCard {...insight} />)
+```
+This allows easy schema changes and future API integration.
+
+### 3. **State Management**
+```typescript
+// Zustand stores for predictable state flow
+useBrandStore    // Selected brand ID → Triggers dashboard re-render
+useAuditStore    // Selected module ID → Triggers audit panel update
+useThemeStore    // Dark/light mode preference
+```
+
+### 4. **Responsive Strategy**
+- **Public pages**: Mobile-first with breakpoint scaling
+- **Dashboard**: Sidebar collapses to hamburger menu on mobile
+- **Audit page**: Sidebar becomes horizontal scrollable tabs on mobile
+
+## 📐 Tradeoffs Made
+
+| Decision | Alternative Considered | Rationale |
+|----------|----------------------|-----------|
+| **Playfair Display for headings** | System serif or Inter for all | The "oracle/wisdom" feel was worth the extra font load (~40KB) |
+| **Glassmorphism everywhere** | Solid cards | Aligned with "living algorithm" concept; backdrop-filter is well-supported now |
+| **7 separate JSON files** | Single large JSON | Better simulates modular API responses; easier to extend per-module |
+| **Zustand over Context** | React Context | Less boilerplate for simple state; persists pattern for future API calls |
+| **No loading skeletons** | Shimmer placeholders | Time constraint; data is client-side instant anyway |
+| **Fixed sidebar on desktop** | Collapsible sidebar | Simpler UX for audit workflow; consistent navigation |
+
+## 🔧 Assumptions & Shortcuts
+
+1. **No authentication**: User is assumed logged in per assignment spec
+2. **Mock data only**: No backend; JSON files simulate API responses
+3. **Single brand view**: Brand selector updates state but doesn't persist
+4. **Static timestamps**: Audit dates are hardcoded in JSON
+5. **Limited dark mode**: Theme toggle works but some components need polish
+
 ## 🚀 Getting Started
 
 ```bash
@@ -103,35 +147,44 @@ npm run dev
 
 # Build for production
 npm run build
+
+# Start production server
+npm start
 ```
 
-## 🎨 Design System
+## 🌐 Deployment
 
-### Color Palette
-
-```css
-/* Primary - Deep Teal */
---kasparro-teal: #0d6b5e;
-
-/* Accent - Lime (growth signal) */
---kasparro-lime: #84cc16;
-
-/* Neutral - Sage */
---kasparro-sage: #5a6b5a;
---kasparro-deep: #1a2e1a;
+```bash
+# Deploy to Vercel (recommended)
+npx vercel
 ```
 
-### Key Utilities
+## ✅ Requirements Checklist
 
-```css
-.glass          /* Glassmorphism effect */
-.glass-card     /* Interactive glass card */
-.text-gradient  /* Teal → Lime gradient text */
-.font-oracle    /* Playfair Display serif */
-.module-item    /* Sidebar nav item */
-.module-item-active /* With "stem glow" indicator */
-.animate-breathe /* Slow breathing animation */
-```
+### Part A — Public Website
+- [x] `/` — Homepage with hero, modules, pipeline, CTA
+- [x] `/platform` — Product overview with pipeline visualization
+- [x] `/about` — Mission, philosophy, vision
+
+### Part B — Dashboard
+- [x] `/app/dashboard` — Brand selector + 4 snapshot cards
+- [x] `/app/audit` — Module sidebar + dynamic content
+- [x] `/app/architecture` — System pipeline diagram
+
+### Engineering Requirements
+- [x] Component architecture (layout/feature/ui separation)
+- [x] TypeScript interfaces for all data
+- [x] Zustand state management
+- [x] Consistent data schemas
+- [x] Responsive design
+- [x] Dark mode toggle
+
+### Bonus Items
+- [x] Dark/light mode toggle
+- [x] Micro-interactions for module switching (AnimatePresence)
+- [x] Responsive dashboard behavior
+- [ ] Loading skeletons (deprioritized)
+- [ ] Empty states (deprioritized)
 
 ## 📁 Data Schema
 
@@ -170,7 +223,7 @@ interface AuditModuleData {
 ## 🔮 Future Enhancements
 
 - [ ] Real API integration
-- [ ] Dark mode toggle
+- [ ] Server-side rendering for audit data
 - [ ] Export reports (PDF)
 - [ ] Multi-brand comparison view
 - [ ] Historical trend charts
@@ -178,4 +231,4 @@ interface AuditModuleData {
 
 ---
 
-**Built with 💚 by the Kasparro Team**
+**Built with 💚 for the Kasparro Engineering Assignment**

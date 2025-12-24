@@ -102,9 +102,44 @@ export default function AuditPage() {
     const currentModuleMeta = modules.find(m => m.id === selectedModule)!;
 
     return (
-        <div className="flex gap-6 min-h-[calc(100vh-4rem)]">
-            {/* Module Sidebar */}
-            <div className="w-56 shrink-0">
+        <div className="flex flex-col lg:flex-row gap-6 min-h-[calc(100vh-4rem)]">
+            {/* Mobile Module Tabs */}
+            <div className="lg:hidden overflow-x-auto pb-2 -mx-4 px-4">
+                <div className="flex gap-2 min-w-max">
+                    {modules.map((module) => {
+                        const isActive = selectedModule === module.id;
+                        const data = auditDataMap[module.id];
+                        return (
+                            <button
+                                key={module.id}
+                                onClick={() => setSelectedModule(module.id)}
+                                className={cn(
+                                    "flex items-center gap-2 px-3 py-2 rounded-xl text-sm whitespace-nowrap transition-all",
+                                    isActive
+                                        ? "bg-[#0d6b5e] text-white"
+                                        : "bg-white/60 border border-[#0d6b5e]/10 text-[#5a6b5a]"
+                                )}
+                            >
+                                <module.icon className="w-4 h-4" />
+                                <span>{module.shortName}</span>
+                                <span className={cn(
+                                    "text-xs font-semibold",
+                                    isActive ? "text-white/80" : (
+                                        data.overallScore >= 80 ? "text-[#22c55e]" :
+                                            data.overallScore >= 60 ? "text-[#0d6b5e]" :
+                                                data.overallScore >= 40 ? "text-[#f59e0b]" : "text-[#dc2626]"
+                                    )
+                                )}>
+                                    {data.overallScore}
+                                </span>
+                            </button>
+                        );
+                    })}
+                </div>
+            </div>
+
+            {/* Desktop Module Sidebar */}
+            <div className="hidden lg:block w-56 shrink-0">
                 <GlassCard hover={false} className="sticky top-6 p-3">
                     <div className="text-xs font-medium text-[#5a6b5a] px-3 mb-2">Audit Modules</div>
                     <nav className="space-y-1">

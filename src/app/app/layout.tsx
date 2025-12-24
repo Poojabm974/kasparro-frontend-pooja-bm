@@ -12,9 +12,9 @@ export default function DashboardLayout({
             {/* Sidebar */}
             <AppSidebar />
 
-            {/* Main Content */}
-            <main className="ml-64 min-h-screen">
-                <div className="p-6 md:p-8">
+            {/* Main Content - responsive margins */}
+            <main className="lg:ml-64 min-h-screen pt-16 lg:pt-0">
+                <div className="p-4 md:p-6 lg:p-8">
                     {children}
                 </div>
             </main>

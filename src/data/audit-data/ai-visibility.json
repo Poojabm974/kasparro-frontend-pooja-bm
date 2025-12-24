@@ -1,89 +1,64 @@
 {
-    "id": "ai-visibility",
-    "name": "AI Visibility",
-    "shortName": "AI Visibility",
-    "description": "Measures how prominently your brand appears in AI-generated responses from ChatGPT, Gemini, and Perplexity.",
-    "icon": "Bot",
-    "score": {
-        "value": 62,
-        "level": "good",
-        "change": 12,
-        "trend": "up"
-    },
+    "moduleId": "ai-visibility",
+    "brandId": "brand-1",
+    "timestamp": "2024-12-23T14:30:00Z",
+    "overallScore": 62,
+    "scoreTrend": "up",
     "insights": [
         {
-            "id": "insight-1",
             "title": "Strong ChatGPT Presence",
             "description": "Your brand is mentioned in 68% of relevant ChatGPT responses for your core product category.",
-            "impact": "high",
-            "category": "ChatGPT"
+            "type": "success"
         },
         {
-            "id": "insight-2",
             "title": "Growing Perplexity Citations",
             "description": "Perplexity cites your content as a source in 45% of industry-related queries, up from 28% last month.",
-            "impact": "high",
-            "category": "Perplexity"
+            "type": "success"
         },
         {
-            "id": "insight-3",
-            "title": "Featured in Comparison Queries",
-            "description": "When users ask AI 'best tools for X', your brand appears in 7 out of 10 responses.",
-            "impact": "medium",
-            "category": "Brand Awareness"
+            "title": "Weak Gemini Visibility",
+            "description": "Your brand only appears in 23% of Gemini responses, significantly lagging competitors.",
+            "type": "critical"
         }
     ],
     "issues": [
         {
             "id": "issue-1",
-            "title": "Weak Gemini Visibility",
-            "description": "Your brand only appears in 23% of Gemini responses, significantly lagging competitors.",
-            "severity": "critical",
-            "affectedPages": 0,
-            "fixableAutomatically": false
+            "severity": "high",
+            "message": "Low Gemini Visibility (23%)",
+            "impact": "Missing significant traffic from Google's AI search features"
         },
         {
             "id": "issue-2",
-            "title": "Incorrect Information in AI Responses",
-            "description": "AI models are citing outdated pricing and feature information from 2023.",
-            "severity": "critical",
-            "affectedPages": 0,
-            "fixableAutomatically": false
+            "severity": "high",
+            "message": "Outdated Information in AI Responses",
+            "impact": "AI models are citing outdated pricing and features from 2023"
         },
         {
             "id": "issue-3",
-            "title": "Missing from 'How-to' Queries",
-            "description": "Despite strong tutorial content, AI rarely cites your how-to guides.",
-            "severity": "warning",
-            "affectedPages": 0,
-            "fixableAutomatically": false
+            "severity": "medium",
+            "message": "Missing from How-to Queries",
+            "impact": "Despite strong tutorials, AI rarely cites your how-to guides"
         }
     ],
     "recommendations": [
         {
-            "id": "rec-1",
-            "action": "Optimize for Gemini",
-            "description": "Create more structured, factual content that aligns with Gemini's preference for authoritative sources.",
-            "priority": "high",
-            "effort": "strategic",
-            "estimatedImpact": "+15-20 points on Gemini visibility"
+            "title": "Optimize for Gemini",
+            "effort": "high",
+            "impact": "high",
+            "action": "Create more structured, factual content that aligns with Gemini's preference for authoritative sources."
         },
         {
-            "id": "rec-2",
-            "action": "Update Key Information Pages",
-            "description": "Ensure pricing, features, and company info are current and prominently structured.",
-            "priority": "high",
-            "effort": "quick-win",
-            "estimatedImpact": "Accurate AI brand representation"
+            "title": "Update Key Information Pages",
+            "effort": "low",
+            "impact": "high",
+            "action": "Ensure pricing, features, and company info are current and prominently structured."
         },
         {
-            "id": "rec-3",
-            "action": "Restructure Tutorial Content",
-            "description": "Add clear step numbers, summaries, and FAQ schema to how-to content.",
-            "priority": "medium",
-            "effort": "moderate",
-            "estimatedImpact": "Improved tutorial citation rates"
+            "title": "Restructure Tutorial Content",
+            "effort": "medium",
+            "impact": "medium",
+            "action": "Add clear step numbers, summaries, and FAQ schema to how-to content."
         }
-    ],
-    "lastUpdated": "2024-12-23T14:30:00Z"
+    ]
 }

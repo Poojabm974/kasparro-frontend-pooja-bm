@@ -1,89 +1,64 @@
 {
-    "id": "trust-signals",
-    "name": "Trust Signals",
-    "shortName": "Trust",
-    "description": "Evaluates credibility markers, author bios, contact info, security, and third-party trust indicators.",
-    "icon": "Shield",
-    "score": {
-        "value": 82,
-        "level": "excellent",
-        "change": 0,
-        "trend": "stable"
-    },
+    "moduleId": "trust-signals",
+    "brandId": "brand-1",
+    "timestamp": "2024-12-23T14:30:00Z",
+    "overallScore": 82,
+    "scoreTrend": "stable",
     "insights": [
         {
-            "id": "insight-1",
             "title": "Excellent Security Posture",
             "description": "HTTPS everywhere, valid SSL, and security headers signal trustworthiness to AI.",
-            "impact": "high",
-            "category": "Security"
+            "type": "success"
         },
         {
-            "id": "insight-2",
             "title": "Clear Business Entity",
             "description": "Complete contact info, business registration, and physical address verify legitimacy.",
-            "impact": "high",
-            "category": "Transparency"
+            "type": "success"
         },
         {
-            "id": "insight-3",
-            "title": "Third-Party Validation",
-            "description": "BBB accreditation, industry certifications, and trust badges enhance credibility.",
-            "impact": "medium",
-            "category": "Credentials"
+            "title": "Missing Privacy Policy Updates",
+            "description": "Privacy policy hasn't been updated since 2022, raising compliance questions.",
+            "type": "warning"
         }
     ],
     "issues": [
         {
             "id": "issue-1",
-            "title": "Missing Privacy Policy Updates",
-            "description": "Privacy policy hasn't been updated since 2022, raising compliance questions.",
-            "severity": "warning",
-            "affectedPages": 1,
-            "fixableAutomatically": false
+            "severity": "medium",
+            "message": "Outdated Privacy Policy (2022)",
+            "impact": "Raises compliance questions for AI trust evaluation"
         },
         {
             "id": "issue-2",
-            "title": "Incomplete Social Proof",
-            "description": "Customer reviews and testimonials lack structured data markup.",
-            "severity": "info",
-            "affectedPages": 5,
-            "fixableAutomatically": true
+            "severity": "low",
+            "message": "Missing Review Schema (5 Pages)",
+            "impact": "Customer testimonials lack structured data markup"
         },
         {
             "id": "issue-3",
-            "title": "No Clear Correction Policy",
-            "description": "Missing editorial policy for corrections, important for news/content sites.",
-            "severity": "info",
-            "affectedPages": 0,
-            "fixableAutomatically": false
+            "severity": "low",
+            "message": "No Editorial Policy",
+            "impact": "Missing correction policy for content sites"
         }
     ],
     "recommendations": [
         {
-            "id": "rec-1",
-            "action": "Update Legal Pages",
-            "description": "Refresh privacy policy and terms of service with current dates and regulations.",
-            "priority": "high",
-            "effort": "quick-win",
-            "estimatedImpact": "Improved compliance signals"
+            "title": "Update Legal Pages",
+            "effort": "low",
+            "impact": "high",
+            "action": "Refresh privacy policy and terms of service with current dates and regulations."
         },
         {
-            "id": "rec-2",
-            "action": "Add Review Schema",
-            "description": "Implement AggregateRating and Review structured data for testimonials.",
-            "priority": "medium",
-            "effort": "quick-win",
-            "estimatedImpact": "Enhanced social proof in AI responses"
+            "title": "Add Review Schema",
+            "effort": "low",
+            "impact": "medium",
+            "action": "Implement AggregateRating and Review structured data for testimonials."
         },
         {
-            "id": "rec-3",
-            "action": "Create Editorial Guidelines",
-            "description": "Publish transparent editorial and correction policies.",
-            "priority": "low",
-            "effort": "moderate",
-            "estimatedImpact": "Stronger journalism/content standards"
+            "title": "Create Editorial Guidelines",
+            "effort": "medium",
+            "impact": "low",
+            "action": "Publish transparent editorial and correction policies."
         }
-    ],
-    "lastUpdated": "2024-12-23T14:30:00Z"
+    ]
 }

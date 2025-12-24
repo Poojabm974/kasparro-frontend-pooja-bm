@@ -1,89 +1,64 @@
 {
-    "id": "technical-seo",
-    "name": "Technical SEO",
-    "shortName": "Technical",
-    "description": "Evaluates crawlability, structured data, page speed, mobile-friendliness, and technical infrastructure.",
-    "icon": "Settings",
-    "score": {
-        "value": 85,
-        "level": "excellent",
-        "change": 2,
-        "trend": "up"
-    },
+    "moduleId": "technical-seo",
+    "brandId": "brand-1",
+    "timestamp": "2024-12-23T14:30:00Z",
+    "overallScore": 85,
+    "scoreTrend": "up",
     "insights": [
         {
-            "id": "insight-1",
             "title": "Excellent Core Web Vitals",
             "description": "All pages pass CWV thresholds with LCP < 2.2s, FID < 80ms, and CLS < 0.08. This directly impacts AI crawl prioritization.",
-            "impact": "high",
-            "category": "Performance"
+            "type": "success"
         },
         {
-            "id": "insight-2",
             "title": "Comprehensive Schema Markup",
             "description": "85% of pages have appropriate structured data, helping AI understand your content semantically.",
-            "impact": "high",
-            "category": "Structured Data"
+            "type": "success"
         },
         {
-            "id": "insight-3",
-            "title": "Clean URL Structure",
-            "description": "URLs are semantic, short, and keyword-optimized with logical hierarchy.",
-            "impact": "medium",
-            "category": "Architecture"
+            "title": "JavaScript Rendering Issues",
+            "description": "12 pages rely heavily on client-side rendering, potentially invisible to AI crawlers.",
+            "type": "warning"
         }
     ],
     "issues": [
         {
             "id": "issue-1",
-            "title": "JavaScript Rendering Delays",
-            "description": "12 pages rely heavily on client-side rendering, potentially invisible to AI crawlers.",
-            "severity": "warning",
-            "affectedPages": 12,
-            "fixableAutomatically": false
+            "severity": "medium",
+            "message": "JavaScript Rendering Delays on 12 Pages",
+            "impact": "Client-rendered content may not be indexed by AI crawlers"
         },
         {
             "id": "issue-2",
-            "title": "Missing Hreflang Tags",
-            "description": "International content lacks proper hreflang implementation, causing AI confusion on regional targeting.",
-            "severity": "warning",
-            "affectedPages": 45,
-            "fixableAutomatically": true
+            "severity": "medium",
+            "message": "Missing Hreflang Tags (45 Pages)",
+            "impact": "International content causes AI confusion on regional targeting"
         },
         {
             "id": "issue-3",
-            "title": "Broken Internal Links",
-            "description": "7 pages have broken internal links, fragmenting site architecture signals.",
-            "severity": "info",
-            "affectedPages": 7,
-            "fixableAutomatically": true
+            "severity": "low",
+            "message": "7 Broken Internal Links",
+            "impact": "Fragments site architecture signals for crawlers"
         }
     ],
     "recommendations": [
         {
-            "id": "rec-1",
-            "action": "Implement SSR for Critical Pages",
-            "description": "Convert client-rendered pages to server-side rendering for better AI crawlability.",
-            "priority": "high",
-            "effort": "moderate",
-            "estimatedImpact": "Improved AI indexing of dynamic content"
+            "title": "Implement SSR for Critical Pages",
+            "effort": "medium",
+            "impact": "high",
+            "action": "Convert client-rendered pages to server-side rendering for better AI crawlability."
         },
         {
-            "id": "rec-2",
-            "action": "Add Hreflang Markup",
-            "description": "Implement proper hreflang tags for all international content variations.",
-            "priority": "medium",
-            "effort": "quick-win",
-            "estimatedImpact": "Correct regional targeting in AI responses"
+            "title": "Add Hreflang Markup",
+            "effort": "low",
+            "impact": "medium",
+            "action": "Implement proper hreflang tags for all international content variations."
         },
         {
-            "id": "rec-3",
-            "action": "Fix Broken Links",
-            "description": "Repair or redirect all broken internal links to maintain crawl efficiency.",
-            "priority": "low",
-            "effort": "quick-win",
-            "estimatedImpact": "Cleaner site architecture signals"
+            "title": "Fix Broken Links",
+            "effort": "low",
+            "impact": "low",
+            "action": "Repair or redirect all broken internal links to maintain crawl efficiency."
         }
-    ],
-    "lastUpdated": "2024-12-23T14:30:00Z"
+    ]
 }

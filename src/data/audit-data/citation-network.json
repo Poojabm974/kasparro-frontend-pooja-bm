@@ -1,89 +1,64 @@
 {
-    "id": "citation-network",
-    "name": "Citation Network",
-    "shortName": "Citations",
-    "description": "Maps backlinks, brand mentions, and citation patterns that AI models use to assess authority.",
-    "icon": "Network",
-    "score": {
-        "value": 67,
-        "level": "good",
-        "change": 8,
-        "trend": "up"
-    },
+    "moduleId": "citation-network",
+    "brandId": "brand-1",
+    "timestamp": "2024-12-23T14:30:00Z",
+    "overallScore": 67,
+    "scoreTrend": "up",
     "insights": [
         {
-            "id": "insight-1",
             "title": "Quality Over Quantity",
             "description": "Your backlink profile prioritizes relevant, high-authority sources over volume. AI values this.",
-            "impact": "high",
-            "category": "Quality"
+            "type": "success"
         },
         {
-            "id": "insight-2",
             "title": "Industry Publication Citations",
             "description": "Featured in 12 industry publications this quarter, boosting entity recognition.",
-            "impact": "high",
-            "category": "Media"
+            "type": "success"
         },
         {
-            "id": "insight-3",
-            "title": "Diverse Anchor Text Profile",
-            "description": "Natural anchor text distribution signals organic link acquisition to AI.",
-            "impact": "medium",
-            "category": "Link Profile"
+            "title": "Low Wikipedia Presence",
+            "description": "Your brand has no Wikipedia mention, missing a key AI knowledge source.",
+            "type": "warning"
         }
     ],
     "issues": [
         {
             "id": "issue-1",
-            "title": "Low Wikipedia Presence",
-            "description": "Your brand has no Wikipedia mention, missing a key AI knowledge source.",
-            "severity": "warning",
-            "affectedPages": 0,
-            "fixableAutomatically": false
+            "severity": "medium",
+            "message": "No Wikipedia Presence",
+            "impact": "Missing from a primary knowledge source used by AI models"
         },
         {
             "id": "issue-2",
-            "title": "Toxic Backlinks Detected",
-            "description": "47 potentially harmful backlinks identified that could hurt credibility.",
-            "severity": "warning",
-            "affectedPages": 0,
-            "fixableAutomatically": false
+            "severity": "medium",
+            "message": "47 Toxic Backlinks Detected",
+            "impact": "Potentially harmful backlinks could hurt credibility"
         },
         {
             "id": "issue-3",
-            "title": "Limited Academic Citations",
-            "description": "No citations from research papers or academic sources, unlike top competitors.",
-            "severity": "info",
-            "affectedPages": 0,
-            "fixableAutomatically": false
+            "severity": "low",
+            "message": "Limited Academic Citations",
+            "impact": "No citations from research papers, unlike top competitors"
         }
     ],
     "recommendations": [
         {
-            "id": "rec-1",
-            "action": "Wikipedia Notability Campaign",
-            "description": "Build notability through PR and media coverage to warrant Wikipedia inclusion.",
-            "priority": "high",
-            "effort": "strategic",
-            "estimatedImpact": "Major AI knowledge graph presence"
+            "title": "Wikipedia Notability Campaign",
+            "effort": "high",
+            "impact": "high",
+            "action": "Build notability through PR and media coverage to warrant Wikipedia inclusion."
         },
         {
-            "id": "rec-2",
-            "action": "Disavow Toxic Links",
-            "description": "Submit disavow file for identified harmful backlinks.",
-            "priority": "medium",
-            "effort": "quick-win",
-            "estimatedImpact": "Cleaner link profile signals"
+            "title": "Disavow Toxic Links",
+            "effort": "low",
+            "impact": "medium",
+            "action": "Submit disavow file for identified harmful backlinks."
         },
         {
-            "id": "rec-3",
-            "action": "Research Partnership",
-            "description": "Collaborate with academic institutions for research citations.",
-            "priority": "low",
-            "effort": "strategic",
-            "estimatedImpact": "Enhanced credibility signals"
+            "title": "Research Partnership",
+            "effort": "high",
+            "impact": "medium",
+            "action": "Collaborate with academic institutions for research citations."
         }
-    ],
-    "lastUpdated": "2024-12-23T14:30:00Z"
+    ]
 }

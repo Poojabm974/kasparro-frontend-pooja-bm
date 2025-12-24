@@ -1,0 +1,53 @@
+{
+    "modules": [
+        {
+            "id": "content-quality",
+            "name": "Content Quality & EEAT",
+            "shortName": "Content",
+            "description": "Analyzes content depth, expertise signals, authoritativeness, and trustworthiness markers that AI models evaluate.",
+            "icon": "FileText"
+        },
+        {
+            "id": "technical-seo",
+            "name": "Technical SEO",
+            "shortName": "Technical",
+            "description": "Evaluates crawlability, structured data, page speed, mobile-friendliness, and technical infrastructure.",
+            "icon": "Settings"
+        },
+        {
+            "id": "ai-visibility",
+            "name": "AI Visibility",
+            "shortName": "AI Visibility",
+            "description": "Measures how prominently your brand appears in AI-generated responses from ChatGPT, Gemini, and Perplexity.",
+            "icon": "Bot"
+        },
+        {
+            "id": "keyword-coverage",
+            "name": "Keyword Coverage",
+            "shortName": "Keywords",
+            "description": "Tracks branded and non-branded keyword performance, including AI search query patterns.",
+            "icon": "Search"
+        },
+        {
+            "id": "competitor-analysis",
+            "name": "Competitor Analysis",
+            "shortName": "Competitors",
+            "description": "Compares your AI visibility and SEO performance against key competitors in your industry.",
+            "icon": "Users"
+        },
+        {
+            "id": "citation-network",
+            "name": "Citation Network",
+            "shortName": "Citations",
+            "description": "Maps backlinks, brand mentions, and citation patterns that AI models use to assess authority.",
+            "icon": "Network"
+        },
+        {
+            "id": "trust-signals",
+            "name": "Trust Signals",
+            "shortName": "Trust",
+            "description": "Evaluates credibility markers, author bios, contact info, security, and third-party trust indicators.",
+            "icon": "Shield"
+        }
+    ]
+}

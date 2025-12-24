@@ -1,0 +1,89 @@
+{
+    "id": "competitor-analysis",
+    "name": "Competitor Analysis",
+    "shortName": "Competitors",
+    "description": "Compares your AI visibility and SEO performance against key competitors in your industry.",
+    "icon": "Users",
+    "score": {
+        "value": 58,
+        "level": "average",
+        "change": 4,
+        "trend": "up"
+    },
+    "insights": [
+        {
+            "id": "insight-1",
+            "title": "Outperforming on Content Depth",
+            "description": "Your average content length is 2.3x competitor average, signaling expertise to AI.",
+            "impact": "high",
+            "category": "Content"
+        },
+        {
+            "id": "insight-2",
+            "title": "Growing Market Share",
+            "description": "Your share of AI mentions increased from 18% to 24% over 3 months.",
+            "impact": "high",
+            "category": "Market Position"
+        },
+        {
+            "id": "insight-3",
+            "title": "Unique Feature Coverage",
+            "description": "You're the only competitor with dedicated content on 3 emerging topics.",
+            "impact": "medium",
+            "category": "Differentiation"
+        }
+    ],
+    "issues": [
+        {
+            "id": "issue-1",
+            "title": "Competitor A Dominates AI Responses",
+            "description": "Competitor A appears in 78% of AI responses vs your 45%. Significant gap exists.",
+            "severity": "critical",
+            "affectedPages": 0,
+            "fixableAutomatically": false
+        },
+        {
+            "id": "issue-2",
+            "title": "Weaker Backlink Profile",
+            "description": "Your domain authority (DA 52) lags behind top 3 competitors (DA 65-72).",
+            "severity": "warning",
+            "affectedPages": 0,
+            "fixableAutomatically": false
+        },
+        {
+            "id": "issue-3",
+            "title": "Slower Publishing Cadence",
+            "description": "Competitors publish 3x more content monthly, capturing more AI training data.",
+            "severity": "warning",
+            "affectedPages": 0,
+            "fixableAutomatically": false
+        }
+    ],
+    "recommendations": [
+        {
+            "id": "rec-1",
+            "action": "Competitive Gap Analysis",
+            "description": "Identify and create content for 25 high-value keywords where competitors rank but you don't.",
+            "priority": "high",
+            "effort": "strategic",
+            "estimatedImpact": "Close visibility gap by 15-20%"
+        },
+        {
+            "id": "rec-2",
+            "action": "Strategic Link Building",
+            "description": "Launch outreach campaign targeting competitor backlink sources.",
+            "priority": "high",
+            "effort": "strategic",
+            "estimatedImpact": "+10-15 DA over 6 months"
+        },
+        {
+            "id": "rec-3",
+            "action": "Increase Content Velocity",
+            "description": "Scale content production to match industry publishing standards.",
+            "priority": "medium",
+            "effort": "strategic",
+            "estimatedImpact": "More AI training data presence"
+        }
+    ],
+    "lastUpdated": "2024-12-23T14:30:00Z"
+}

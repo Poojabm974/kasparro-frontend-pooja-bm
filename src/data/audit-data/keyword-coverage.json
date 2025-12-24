@@ -1,0 +1,89 @@
+{
+    "id": "keyword-coverage",
+    "name": "Keyword Coverage",
+    "shortName": "Keywords",
+    "description": "Tracks branded and non-branded keyword performance, including AI search query patterns.",
+    "icon": "Search",
+    "score": {
+        "value": 71,
+        "level": "good",
+        "change": -3,
+        "trend": "down"
+    },
+    "insights": [
+        {
+            "id": "insight-1",
+            "title": "Strong Branded Keyword Dominance",
+            "description": "You rank #1 for 94% of branded keywords, maintaining strong brand protection.",
+            "impact": "high",
+            "category": "Branded"
+        },
+        {
+            "id": "insight-2",
+            "title": "Growing Long-tail Coverage",
+            "description": "Non-branded long-tail keyword coverage increased 18% this quarter.",
+            "impact": "medium",
+            "category": "Non-Branded"
+        },
+        {
+            "id": "insight-3",
+            "title": "AI Query Pattern Match",
+            "description": "Your content aligns with 67% of conversational AI query patterns in your niche.",
+            "impact": "high",
+            "category": "AI Queries"
+        }
+    ],
+    "issues": [
+        {
+            "id": "issue-1",
+            "title": "Low Non-Branded Coverage",
+            "description": "Only 34% coverage for non-branded terms in your core category vs 52% industry average.",
+            "severity": "critical",
+            "affectedPages": 0,
+            "fixableAutomatically": false
+        },
+        {
+            "id": "issue-2",
+            "title": "Keyword Cannibalization",
+            "description": "5 keyword clusters have multiple pages competing, diluting ranking potential.",
+            "severity": "warning",
+            "affectedPages": 12,
+            "fixableAutomatically": false
+        },
+        {
+            "id": "issue-3",
+            "title": "Missing Question Keywords",
+            "description": "Not ranking for common 'how', 'what', 'why' queries that AI prioritizes.",
+            "severity": "warning",
+            "affectedPages": 0,
+            "fixableAutomatically": false
+        }
+    ],
+    "recommendations": [
+        {
+            "id": "rec-1",
+            "action": "Create AI-Optimized Content Clusters",
+            "description": "Build comprehensive content hubs around 10 priority non-branded topic clusters.",
+            "priority": "high",
+            "effort": "strategic",
+            "estimatedImpact": "+15-25% non-branded coverage"
+        },
+        {
+            "id": "rec-2",
+            "action": "Resolve Cannibalization",
+            "description": "Consolidate competing pages and implement proper internal linking hierarchy.",
+            "priority": "high",
+            "effort": "moderate",
+            "estimatedImpact": "Clearer ranking signals per keyword"
+        },
+        {
+            "id": "rec-3",
+            "action": "Question-Based Content",
+            "description": "Create FAQ pages and Q&A content targeting conversational AI queries.",
+            "priority": "medium",
+            "effort": "moderate",
+            "estimatedImpact": "Better AI query alignment"
+        }
+    ],
+    "lastUpdated": "2024-12-23T14:30:00Z"
+}

@@ -1,0 +1,89 @@
+{
+    "id": "content-quality",
+    "name": "Content Quality & EEAT",
+    "shortName": "Content",
+    "description": "Analyzes content depth, expertise signals, authoritativeness, and trustworthiness markers that AI models evaluate.",
+    "icon": "FileText",
+    "score": {
+        "value": 78,
+        "level": "good",
+        "change": 5,
+        "trend": "up"
+    },
+    "insights": [
+        {
+            "id": "insight-1",
+            "title": "Strong Author Expertise Signals",
+            "description": "Your content features well-attributed authors with clear expertise credentials, which AI models heavily weigh when determining source reliability.",
+            "impact": "high",
+            "category": "EEAT"
+        },
+        {
+            "id": "insight-2",
+            "title": "Deep Content on Core Topics",
+            "description": "Product pages average 2,400 words with comprehensive coverage. AI models favor this depth for complex queries.",
+            "impact": "high",
+            "category": "Content Depth"
+        },
+        {
+            "id": "insight-3",
+            "title": "Good Use of Structured Content",
+            "description": "FAQ sections and step-by-step guides are well-formatted, making content easily parseable by AI systems.",
+            "impact": "medium",
+            "category": "Structure"
+        }
+    ],
+    "issues": [
+        {
+            "id": "issue-1",
+            "title": "Missing Author Bios on 23 Pages",
+            "description": "Key content pages lack author attribution, reducing EEAT signals for AI evaluation.",
+            "severity": "warning",
+            "affectedPages": 23,
+            "fixableAutomatically": true
+        },
+        {
+            "id": "issue-2",
+            "title": "Thin Content Detected",
+            "description": "15 pages have less than 500 words and minimal value, potentially flagged as low-quality by AI.",
+            "severity": "critical",
+            "affectedPages": 15,
+            "fixableAutomatically": false
+        },
+        {
+            "id": "issue-3",
+            "title": "Outdated Content",
+            "description": "8 blog posts haven't been updated in over 18 months, reducing freshness signals.",
+            "severity": "warning",
+            "affectedPages": 8,
+            "fixableAutomatically": false
+        }
+    ],
+    "recommendations": [
+        {
+            "id": "rec-1",
+            "action": "Add Author Bio Schema",
+            "description": "Implement structured author markup across all content pages to strengthen EEAT signals.",
+            "priority": "high",
+            "effort": "quick-win",
+            "estimatedImpact": "+8-12 points on EEAT score"
+        },
+        {
+            "id": "rec-2",
+            "action": "Consolidate Thin Content",
+            "description": "Merge or expand the 15 thin pages into comprehensive resources.",
+            "priority": "high",
+            "effort": "moderate",
+            "estimatedImpact": "+5-10 points on content quality score"
+        },
+        {
+            "id": "rec-3",
+            "action": "Content Refresh Program",
+            "description": "Establish quarterly content reviews to maintain freshness signals.",
+            "priority": "medium",
+            "effort": "strategic",
+            "estimatedImpact": "Sustained ranking improvements"
+        }
+    ],
+    "lastUpdated": "2024-12-23T14:30:00Z"
+}

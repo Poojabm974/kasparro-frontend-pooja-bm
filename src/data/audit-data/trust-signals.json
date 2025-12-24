@@ -1,0 +1,89 @@
+{
+    "id": "trust-signals",
+    "name": "Trust Signals",
+    "shortName": "Trust",
+    "description": "Evaluates credibility markers, author bios, contact info, security, and third-party trust indicators.",
+    "icon": "Shield",
+    "score": {
+        "value": 82,
+        "level": "excellent",
+        "change": 0,
+        "trend": "stable"
+    },
+    "insights": [
+        {
+            "id": "insight-1",
+            "title": "Excellent Security Posture",
+            "description": "HTTPS everywhere, valid SSL, and security headers signal trustworthiness to AI.",
+            "impact": "high",
+            "category": "Security"
+        },
+        {
+            "id": "insight-2",
+            "title": "Clear Business Entity",
+            "description": "Complete contact info, business registration, and physical address verify legitimacy.",
+            "impact": "high",
+            "category": "Transparency"
+        },
+        {
+            "id": "insight-3",
+            "title": "Third-Party Validation",
+            "description": "BBB accreditation, industry certifications, and trust badges enhance credibility.",
+            "impact": "medium",
+            "category": "Credentials"
+        }
+    ],
+    "issues": [
+        {
+            "id": "issue-1",
+            "title": "Missing Privacy Policy Updates",
+            "description": "Privacy policy hasn't been updated since 2022, raising compliance questions.",
+            "severity": "warning",
+            "affectedPages": 1,
+            "fixableAutomatically": false
+        },
+        {
+            "id": "issue-2",
+            "title": "Incomplete Social Proof",
+            "description": "Customer reviews and testimonials lack structured data markup.",
+            "severity": "info",
+            "affectedPages": 5,
+            "fixableAutomatically": true
+        },
+        {
+            "id": "issue-3",
+            "title": "No Clear Correction Policy",
+            "description": "Missing editorial policy for corrections, important for news/content sites.",
+            "severity": "info",
+            "affectedPages": 0,
+            "fixableAutomatically": false
+        }
+    ],
+    "recommendations": [
+        {
+            "id": "rec-1",
+            "action": "Update Legal Pages",
+            "description": "Refresh privacy policy and terms of service with current dates and regulations.",
+            "priority": "high",
+            "effort": "quick-win",
+            "estimatedImpact": "Improved compliance signals"
+        },
+        {
+            "id": "rec-2",
+            "action": "Add Review Schema",
+            "description": "Implement AggregateRating and Review structured data for testimonials.",
+            "priority": "medium",
+            "effort": "quick-win",
+            "estimatedImpact": "Enhanced social proof in AI responses"
+        },
+        {
+            "id": "rec-3",
+            "action": "Create Editorial Guidelines",
+            "description": "Publish transparent editorial and correction policies.",
+            "priority": "low",
+            "effort": "moderate",
+            "estimatedImpact": "Stronger journalism/content standards"
+        }
+    ],
+    "lastUpdated": "2024-12-23T14:30:00Z"
+}

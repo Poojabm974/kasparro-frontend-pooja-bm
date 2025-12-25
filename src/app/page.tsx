@@ -32,7 +32,7 @@ const fadeInUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] }
+    transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] as const }
   },
 };
 
@@ -157,7 +157,7 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ delay: 0.6, duration: 0.8, ease: [0.23, 1, 0.32, 1] as const }}
             className="mt-20 md:mt-28 relative max-w-5xl mx-auto"
           >
             <div className="glass rounded-3xl overflow-hidden border border-white/40">

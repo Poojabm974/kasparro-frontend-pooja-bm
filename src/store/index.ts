@@ -37,13 +37,13 @@ export const useAuditStore = create<AuditState>((set) => ({
 
 // Theme Store (for dark/light mode)
 interface ThemeState {
-    isDark: boolean;
+    isDarkMode: boolean;
     toggleTheme: () => void;
-    setTheme: (isDark: boolean) => void;
+    setTheme: (isDarkMode: boolean) => void;
 }
 
 export const useThemeStore = create<ThemeState>((set) => ({
-    isDark: false,
-    toggleTheme: () => set((state) => ({ isDark: !state.isDark })),
-    setTheme: (isDark) => set({ isDark }),
+    isDarkMode: false,
+    toggleTheme: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
+    setTheme: (isDarkMode) => set({ isDarkMode }),
 }));

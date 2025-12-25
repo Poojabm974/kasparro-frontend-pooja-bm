@@ -75,8 +75,7 @@ export default function HomePage() {
               opacity: [0.4, 0.6, 0.4],
             }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 right-[15%] w-64 h-64 rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(132, 204, 22, 0.15) 0%, transparent 70%)" }}
+            className="absolute top-20 right-[15%] w-64 h-64 rounded-full bg-hero-glow-lime"
           />
           <motion.div
             animate={{
@@ -84,8 +83,7 @@ export default function HomePage() {
               opacity: [0.3, 0.5, 0.3],
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-20 left-[10%] w-96 h-96 rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(13, 107, 94, 0.12) 0%, transparent 70%)" }}
+            className="absolute bottom-20 left-[10%] w-96 h-96 rounded-full bg-hero-glow-teal"
           />
         </div>
 

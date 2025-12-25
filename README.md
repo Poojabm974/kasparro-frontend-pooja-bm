@@ -1,234 +1,409 @@
-# Kasparro — The Living Algorithm
+<p align="center">
+  <img src="https://img.shields.io/badge/Kasparro-The%20Living%20Algorithm-0d6b5e?style=for-the-badge&labelColor=1a2e1a" alt="Kasparro" />
+</p>
 
-> AI-native SEO and Brand Visibility Platform
+<h1 align="center">🌿 Kasparro</h1>
+<h3 align="center">AI-Native SEO & Brand Visibility Platform</h3>
 
-Kasparro transforms brand data into organic insight. Unlike sterile, spreadsheet-like competitors, Kasparro visualizes data as a "living ecosystem" where brand health is represented by organic growth, clarity, and interconnectedness.
+<p align="center">
+  <em>See how AI models perceive, recommend, and trust your brand in the new search ecosystem.</em>
+</p>
 
-## 🚀 Live Demo
-
-**[View Live Deployment →](https://kasparro.vercel.app)** *(Update with actual URL)*
-
-## 🌿 Design Philosophy: "Digital Biophilia"
-
-The core concept is "The Living Algorithm" — data is not static, it is organic.
-
-### Visual Style
-- **Backgrounds**: Soft teal/sage tones with organic mesh gradients
-- **Glassmorphism**: UI panels are frosted glass with high blur and low opacity borders
-- **Typography**: 
-  - Headings: Elegant serif (Playfair Display) for "oracle/wisdom" aesthetic
-  - Data/UI: Clean sans-serif (Inter) for readability
-- **Motion**: Slow, floating parallax effects, smooth easing, "breathing" UI elements
-
-## 🏗️ Folder Structure
-
-```
-kasparro/
-├── src/
-│   ├── app/
-│   │   ├── (public routes)
-│   │   │   ├── page.tsx           # Homepage - Hero, modules, pipeline
-│   │   │   ├── platform/page.tsx  # Product overview - pipeline visualization
-│   │   │   └── about/page.tsx     # Mission, philosophy, vision
-│   │   │
-│   │   ├── app/                   # Dashboard namespace (authenticated shell)
-│   │   │   ├── layout.tsx         # Dashboard layout with responsive sidebar
-│   │   │   ├── dashboard/page.tsx # Brand snapshot cards
-│   │   │   ├── audit/page.tsx     # Module sidebar + dynamic detail panel
-│   │   │   └── architecture/page.tsx # System pipeline visualization
-│   │   │
-│   │   ├── globals.css            # Complete design system
-│   │   └── layout.tsx             # Root layout with fonts
-│   │
-│   ├── components/
-│   │   ├── ui/                    # Atomic components
-│   │   │   ├── glass-card.tsx     # GlassCard, FeaturedCard, ScoreCircle
-│   │   │   └── [shadcn components]
-│   │   ├── layouts/               # Layout components
-│   │   │   ├── public-header.tsx  # Marketing site header
-│   │   │   ├── public-footer.tsx  # Marketing site footer
-│   │   │   └── app-sidebar.tsx    # Dashboard sidebar (responsive)
-│   │   └── features/              # Feature-specific components (reserved)
-│   │
-│   ├── data/                      # Mock JSON database
-│   │   ├── brands.json            # Sample brands
-│   │   ├── modules.json           # Module metadata
-│   │   └── audit-data/            # Per-module audit results (7 files)
-│   │
-│   ├── types/                     # TypeScript definitions
-│   │   └── index.ts               # All interfaces & helper functions
-│   │
-│   ├── store/                     # Zustand state management
-│   │   └── index.ts               # Brand, Audit, Theme stores
-│   │
-│   └── lib/                       # Utilities
-│       └── utils.ts               # cn() and helpers
-```
-
-## 🛠️ Tech Stack
-
-| Category | Technology | Rationale |
-|----------|------------|-----------|
-| Framework | Next.js 16 (App Router) | Modern React, great DX, server components |
-| Styling | Tailwind CSS v4 | Utility-first, fast iteration, design tokens |
-| Components | shadcn/ui | Accessible, customizable, not a black box |
-| Animation | Framer Motion | Declarative, performant, UX-purposeful |
-| State | Zustand | Minimal boilerplate, TypeScript-first |
-| Icons | Lucide React | Modern, consistent, tree-shakeable |
-| Fonts | Inter + Playfair Display | Professional body + Oracle-aesthetic headings |
-
-## 📊 The 7 Audit Modules
-
-| Module | Description | Key Metrics |
-|--------|-------------|-------------|
-| **Content Quality** | EEAT signals & depth | eeat_score, reading_level |
-| **Technical SEO** | Core Web Vitals | lcp_score, crawl_efficiency |
-| **AI Visibility** | LLM perception | brand_mentions, sentiment |
-| **Keyword Coverage** | Gap analysis | transactional_coverage |
-| **Competitor Analysis** | Relative positioning | share_of_voice |
-| **Citation Network** | Backlinks & mentions | domain_authority |
-| **Trust Signals** | Credibility markers | trust_score, verification |
-
-## 🎨 Architectural Decisions
-
-### 1. **Component Separation**
-- **UI Primitives** (`/components/ui/`): Atomic, reusable components (GlassCard, Button)
-- **Layouts** (`/components/layouts/`): Page structure (Header, Footer, Sidebar)
-- **Features** (`/components/features/`): Reserved for complex business logic components
-
-### 2. **Data-Driven Audit UI**
-The `/app/audit` page renders entirely from JSON:
-```typescript
-// No hardcoded JSX for insights/issues/recommendations
-moduleData.insights.map((insight) => <InsightCard {...insight} />)
-```
-This allows easy schema changes and future API integration.
-
-### 3. **State Management**
-```typescript
-// Zustand stores for predictable state flow
-useBrandStore    // Selected brand ID → Triggers dashboard re-render
-useAuditStore    // Selected module ID → Triggers audit panel update
-useThemeStore    // Dark/light mode preference
-```
-
-### 4. **Responsive Strategy**
-- **Public pages**: Mobile-first with breakpoint scaling
-- **Dashboard**: Sidebar collapses to hamburger menu on mobile
-- **Audit page**: Sidebar becomes horizontal scrollable tabs on mobile
-
-## 📐 Tradeoffs Made
-
-| Decision | Alternative Considered | Rationale |
-|----------|----------------------|-----------|
-| **Playfair Display for headings** | System serif or Inter for all | The "oracle/wisdom" feel was worth the extra font load (~40KB) |
-| **Glassmorphism everywhere** | Solid cards | Aligned with "living algorithm" concept; backdrop-filter is well-supported now |
-| **7 separate JSON files** | Single large JSON | Better simulates modular API responses; easier to extend per-module |
-| **Zustand over Context** | React Context | Less boilerplate for simple state; persists pattern for future API calls |
-| **No loading skeletons** | Shimmer placeholders | Time constraint; data is client-side instant anyway |
-| **Fixed sidebar on desktop** | Collapsible sidebar | Simpler UX for audit workflow; consistent navigation |
-
-## 🔧 Assumptions & Shortcuts
-
-1. **No authentication**: User is assumed logged in per assignment spec
-2. **Mock data only**: No backend; JSON files simulate API responses
-3. **Single brand view**: Brand selector updates state but doesn't persist
-4. **Static timestamps**: Audit dates are hardcoded in JSON
-5. **Limited dark mode**: Theme toggle works but some components need polish
-
-## 🚀 Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-## 🌐 Deployment
-
-```bash
-# Deploy to Vercel (recommended)
-npx vercel
-```
-
-## ✅ Requirements Checklist
-
-### Part A — Public Website
-- [x] `/` — Homepage with hero, modules, pipeline, CTA
-- [x] `/platform` — Product overview with pipeline visualization
-- [x] `/about` — Mission, philosophy, vision
-
-### Part B — Dashboard
-- [x] `/app/dashboard` — Brand selector + 4 snapshot cards
-- [x] `/app/audit` — Module sidebar + dynamic content
-- [x] `/app/architecture` — System pipeline diagram
-
-### Engineering Requirements
-- [x] Component architecture (layout/feature/ui separation)
-- [x] TypeScript interfaces for all data
-- [x] Zustand state management
-- [x] Consistent data schemas
-- [x] Responsive design
-- [x] Dark mode toggle
-
-### Bonus Items
-- [x] Dark/light mode toggle
-- [x] Micro-interactions for module switching (AnimatePresence)
-- [x] Responsive dashboard behavior
-- [ ] Loading skeletons (deprioritized)
-- [ ] Empty states (deprioritized)
-
-## 📁 Data Schema
-
-All audit modules follow this structure:
-
-```typescript
-interface AuditModuleData {
-  moduleId: string;
-  brandId: string;
-  timestamp: string;
-  overallScore: number; // 0-100
-  scoreTrend: 'up' | 'down' | 'stable';
-  
-  insights: {
-    title: string;
-    description: string;
-    type: 'success' | 'warning' | 'critical';
-  }[];
-
-  issues: {
-    id: string;
-    severity: 'low' | 'medium' | 'high';
-    message: string;
-    impact: string;
-  }[];
-
-  recommendations: {
-    title: string;
-    effort: 'low' | 'medium' | 'high';
-    impact: 'low' | 'medium' | 'high';
-    action: string;
-  }[];
-}
-```
-
-## 🔮 Future Enhancements
-
-- [ ] Real API integration
-- [ ] Server-side rendering for audit data
-- [ ] Export reports (PDF)
-- [ ] Multi-brand comparison view
-- [ ] Historical trend charts
-- [ ] AI-generated recommendations
+<p align="center">
+  <a href="#-live-demo">Live Demo</a> •
+  <a href="#-whats-new-in-v2">What's New</a> •
+  <a href="#-features">Features</a> •
+  <a href="#️-tech-stack">Tech Stack</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-getting-started">Get Started</a>
+</p>
 
 ---
 
-**Built with 💚 for the Kasparro Engineering Assignment**
+## 🚀 Live Demo
+
+| Environment | Link |
+|-------------|------|
+| **Live App** | [🔗 kasparro.vercel.app](https://kasparro.vercel.app) |
+| **Demo Video** | [🎬 Watch Demo](https://your-demo-link.com) |
+
+> *Links will be updated after deployment*
+
+---
+
+## 💡 The Problem We Solve
+
+Traditional SEO tools are stuck in the past. They focus only on Google rankings and keyword stuffing metrics.
+
+**But the world has changed.** 
+
+People now ask ChatGPT, Gemini, Perplexity, and Claude for recommendations. These AI models don't just see your website — they *perceive* your brand across the entire internet.
+
+**Kasparro answers the question:** *"How do AI assistants see my brand, and how can I improve that perception?"*
+
+---
+
+## ✨ What's New in v2
+
+We listened to feedback and made significant improvements:
+
+### Before (v1) ❌
+
+```
+"Strong ChatGPT Presence"
+"Your brand is mentioned in 68% of relevant ChatGPT responses"
+```
+Generic. No explanation. No actionable insight.
+
+### After (v2) ✅
+
+```
+📊 ChatGPT Visibility: 68%
+
+🧠 How ChatGPT Works:
+ChatGPT primarily relies on its training data (up to Oct 2023) and 
+prioritizes well-structured, authoritative content. Unlike search 
+engines, it doesn't crawl live — it remembers.
+
+🔍 Example Query:
+"Best AI-native SEO tools 2024"
+→ Your brand appears #2 because you have strong blog authority
+
+💡 Why This Happens:
+Strong presence in industry publications and authoritative backlinks 
+boost ChatGPT's confidence in recommending your brand.
+
+⚡ Generate AI Analysis → [Dynamic Groq-powered insights]
+```
+
+### Key Improvements
+
+| Area | v1 | v2 |
+|------|----|----|
+| **AI Model Explanations** | Generic descriptions | Deep educational content explaining WHY each model behaves differently |
+| **Concrete Examples** | None | Real query examples like *"What tools help with AI SEO?"* |
+| **Dynamic Insights** | Static text | **Groq LLM integration** for real-time personalized analysis |
+| **Model Comparison** | No breakdown | Per-model visibility cards (ChatGPT, Gemini, Perplexity) |
+| **Optimization Tips** | Generic advice | Model-specific actionable recommendations |
+| **Dark Mode** | Broken 🐛 | Fixed ✅ |
+| **Code Quality** | Inline styles | Clean Tailwind utility classes |
+
+---
+
+## 📋 Features
+
+### 🏠 Public Website
+
+| Page | Description |
+|------|-------------|
+| **Homepage** | Hero section with "The Living Algorithm" concept, 7 module overview, pipeline visualization |
+| **Platform** | Deep dive into how the system works — input → processing → output |
+| **About** | Mission, philosophy, and the vision behind organic AI visibility |
+
+### 📊 Dashboard (Authenticated)
+
+| Page | Description |
+|------|-------------|
+| **Dashboard** | Brand snapshot with key metrics — AI Visibility score, EEAT, Keywords, Citations |
+| **Audit** | The heart of Kasparro. 7 specialized analysis modules with insights, issues, and recommendations |
+| **Architecture** | Visual pipeline showing data flow through the system |
+
+### 🤖 The 7 Audit Modules
+
+| Module | What It Analyzes |
+|--------|-----------------|
+| 📝 **Content Quality** | EEAT signals (Expertise, Experience, Authoritativeness, Trustworthiness) |
+| ⚙️ **Technical SEO** | Core Web Vitals, crawlability, site structure |
+| 🤖 **AI Visibility** | How ChatGPT, Gemini, Perplexity perceive your brand *(v2 enhanced!)* |
+| 🔍 **Keyword Coverage** | Search intent gaps and ranking opportunities |
+| 👥 **Competitor Analysis** | Share of voice and competitive positioning |
+| 🔗 **Citation Network** | Backlinks, mentions, and authority mapping |
+| 🛡️ **Trust Signals** | Credibility markers, reviews, verification status |
+
+### 🆕 v2 Exclusive Features
+
+- **AI Model Explanation Cards** — Expandable cards for each AI model with educational content
+- **"Generate AI Analysis" Button** — Real-time Groq LLM integration for personalized insights
+- **Query Examples** — See exactly how your brand performs for specific AI queries
+- **Model-Specific Recommendations** — Tips tailored to ChatGPT vs Gemini vs Perplexity
+- **Expected Improvement Indicators** — Know the potential impact of each recommendation
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        FRONTEND                              │
+├─────────────────────────────────────────────────────────────┤
+│  Next.js 15          React framework with App Router        │
+│  TypeScript          Type-safe development                  │
+│  Tailwind CSS v4     Utility-first styling                  │
+│  Framer Motion       Smooth animations                      │
+│  shadcn/ui           Accessible component primitives        │
+├─────────────────────────────────────────────────────────────┤
+│                      STATE & DATA                            │
+├─────────────────────────────────────────────────────────────┤
+│  Zustand             Lightweight state management           │
+│  JSON Mock Data      Simulates API responses                │
+├─────────────────────────────────────────────────────────────┤
+│                      AI INTEGRATION                          │
+├─────────────────────────────────────────────────────────────┤
+│  Groq API            LLM for dynamic explanations           │
+│  Llama 3.3 70B       Model powering AI insights             │
+├─────────────────────────────────────────────────────────────┤
+│                        DESIGN                                │
+├─────────────────────────────────────────────────────────────┤
+│  Playfair Display    Elegant serif for headings             │
+│  Inter               Clean sans-serif for UI                │
+│  Lucide React        Modern icon library                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Why These Choices?
+
+| Technology | Why We Chose It |
+|------------|----------------|
+| **Next.js 15** | App Router gives us RSC capabilities, great DX, and easy Vercel deployment |
+| **Tailwind v4** | Design tokens, fast iteration, eliminates CSS file chaos |
+| **Groq + Llama** | Fast inference, generous free tier, excellent for real-time AI explanations |
+| **Zustand** | Minimal boilerplate compared to Redux, TypeScript-first |
+| **Framer Motion** | Declarative animations that feel natural and performant |
+
+---
+
+## 🏗️ Architecture
+
+### High-Level System Flow
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│                              USER JOURNEY                                 │
+└──────────────────────────────────────────────────────────────────────────┘
+
+     ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+     │   Public    │         │  Dashboard  │         │    Audit    │
+     │   Pages     │────────▶│   Shell     │────────▶│   Modules   │
+     │             │  login  │             │  select │             │
+     └─────────────┘         └─────────────┘         └─────────────┘
+           │                       │                       │
+           ▼                       ▼                       ▼
+     ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+     │  Homepage   │         │  Brand      │         │  7 Modules  │
+     │  Platform   │         │  Selector   │         │  Deep Dive  │
+     │  About      │         │  Metrics    │         │  + AI Chat  │
+     └─────────────┘         └─────────────┘         └─────────────┘
+```
+
+### Data Flow Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           INPUT ASSEMBLER                                │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐       │
+│  │ Website  │ │Competitor│ │   SERP   │ │  Brand   │ │Analytics │       │
+│  │  Crawl   │ │   Data   │ │   Data   │ │  Assets  │ │   Data   │       │
+│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └────┬─────┘ └────┬─────┘       │
+│       │            │            │            │            │             │
+│       └────────────┴────────────┼────────────┴────────────┘             │
+│                                 ▼                                        │
+│                    ┌────────────────────────┐                           │
+│                    │   UNIFIED CONTEXT PACK │                           │
+│                    │   (Structured Data)    │                           │
+│                    └───────────┬────────────┘                           │
+└────────────────────────────────┼────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         ANALYSIS MODULES                                 │
+│                                                                          │
+│    ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐                   │
+│    │Content  │  │Technical│  │   AI    │  │Keyword  │                   │
+│    │Quality  │  │   SEO   │  │Visibility│ │Coverage │                   │
+│    └────┬────┘  └────┬────┘  └────┬────┘  └────┬────┘                   │
+│         │            │            │            │                         │
+│    ┌─────────┐  ┌─────────┐  ┌─────────┐                                │
+│    │Competitor│ │Citation │  │  Trust  │                                │
+│    │Analysis │  │ Network │  │ Signals │                                │
+│    └────┬────┘  └────┬────┘  └────┬────┘                                │
+│         │            │            │                                      │
+│         └────────────┴────────────┘                                      │
+│                      │                                                   │
+│                      ▼                                                   │
+│         ┌────────────────────────┐                                       │
+│         │    MODULE RESULTS      │                                       │
+│         │  Scores + Insights +   │                                       │
+│         │  Issues + Actions      │                                       │
+│         └────────────────────────┘                                       │
+└─────────────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         OUTPUT SURFACES                                  │
+│                                                                          │
+│    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐                │
+│    │  Dashboard  │    │   Audit     │    │   Action    │                │
+│    │  Overview   │    │   Detail    │    │   Roadmap   │                │
+│    └─────────────┘    └─────────────┘    └─────────────┘                │
+│                                │                                         │
+│                                ▼                                         │
+│                    ┌─────────────────────┐                              │
+│                    │    GROQ LLM API     │                              │
+│                    │  Dynamic AI Insights │                             │
+│                    └─────────────────────┘                              │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Folder Structure
+
+```
+kasparro/
+│
+├── 📁 src/
+│   ├── 📁 app/                      # Next.js App Router
+│   │   ├── page.tsx                 # Homepage
+│   │   ├── platform/page.tsx        # Platform overview
+│   │   ├── about/page.tsx           # About page
+│   │   ├── 📁 app/                  # Dashboard (authenticated)
+│   │   │   ├── layout.tsx           # Dashboard layout with sidebar
+│   │   │   ├── dashboard/page.tsx   # Brand metrics overview
+│   │   │   ├── audit/page.tsx       # 7-module deep dive
+│   │   │   └── architecture/        # Pipeline visualization
+│   │   ├── 📁 api/
+│   │   │   └── ai-explanation/      # Groq LLM API route
+│   │   └── globals.css              # Design system
+│   │
+│   ├── 📁 components/
+│   │   ├── 📁 ui/                   # Reusable primitives
+│   │   │   ├── glass-card.tsx       # Glassmorphism cards
+│   │   │   ├── ai-model-explanation.tsx  # v2: AI explanation cards
+│   │   │   └── [shadcn components]
+│   │   └── 📁 layouts/              # Page structure
+│   │       ├── public-header.tsx
+│   │       ├── public-footer.tsx
+│   │       └── app-sidebar.tsx
+│   │
+│   ├── 📁 data/                     # Mock data (simulates API)
+│   │   └── 📁 audit-data/           # Per-module JSON files
+│   │
+│   ├── 📁 lib/
+│   │   ├── utils.ts                 # cn() helper
+│   │   └── ai-explanations.ts       # v2: Model data & API client
+│   │
+│   ├── 📁 store/                    # Zustand state
+│   │   └── index.ts                 # Brand, Audit, Theme stores
+│   │
+│   └── 📁 types/                    # TypeScript definitions
+│
+└── 📄 .env.local                    # Environment variables
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/kasparro.git
+cd kasparro
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+```
+
+### Environment Variables
+
+Create a `.env.local` file:
+
+```env
+# Required for AI Analysis feature
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+> 💡 Get your free Groq API key at [console.groq.com](https://console.groq.com)
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see the app.
+
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## 🌐 Deployment
+
+### Vercel (Recommended)
+
+```bash
+npx vercel
+```
+
+### Docker
+
+```bash
+docker build -t kasparro .
+docker run -p 3000:3000 kasparro
+```
+
+---
+
+## 📝 Version History
+
+| Version | Date | Highlights |
+|---------|------|------------|
+| **v2.0** | Dec 2024 | AI Model Explanations, Groq Integration, Dark Mode Fix, Code Quality Improvements |
+| **v1.0** | Dec 2024 | Initial release with 7 audit modules, glassmorphism UI, responsive dashboard |
+
+---
+
+## 🔮 Roadmap
+
+- [ ] Real API backend integration
+- [ ] Multi-brand comparison view
+- [ ] Historical trend charts
+- [ ] PDF report export
+- [ ] Claude model integration
+- [ ] Real-time brand monitoring
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our contributing guidelines before submitting a PR.
+
+---
+
+## 📄 License
+
+This project is proprietary. All rights reserved.
+
+---
+
+<p align="center">
+  <strong>Built with 💚 for the future of AI-native SEO</strong>
+</p>
+
+<p align="center">
+  <sub>Kasparro — The Living Algorithm</sub>
+</p>

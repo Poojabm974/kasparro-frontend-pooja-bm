@@ -34,14 +34,21 @@ const inputNodes = [
     { id: "analytics", label: "Analytics", icon: BarChart3, description: "Traffic data" },
 ];
 
+// Color class mappings for modules
+const colorClasses: Record<string, { bg: string; text: string }> = {
+    "#0d6b5e": { bg: "bg-teal-subtle", text: "text-teal" },
+    "#14b8a6": { bg: "bg-teal-light-subtle", text: "text-teal-light" },
+    "#84cc16": { bg: "bg-lime-subtle", text: "text-lime" },
+};
+
 const moduleNodes = [
-    { id: "content", label: "Content Quality", icon: FileText, color: "#0d6b5e" },
-    { id: "technical", label: "Technical SEO", icon: Settings, color: "#14b8a6" },
-    { id: "ai-vis", label: "AI Visibility", icon: Bot, color: "#84cc16" },
-    { id: "keywords", label: "Keywords", icon: Search, color: "#0d6b5e" },
-    { id: "competitors", label: "Competitors", icon: Users, color: "#14b8a6" },
-    { id: "citations", label: "Citations", icon: Network, color: "#84cc16" },
-    { id: "trust", label: "Trust", icon: Shield, color: "#0d6b5e" },
+    { id: "content", label: "Content Quality", icon: FileText, colorKey: "#0d6b5e" },
+    { id: "technical", label: "Technical SEO", icon: Settings, colorKey: "#14b8a6" },
+    { id: "ai-vis", label: "AI Visibility", icon: Bot, colorKey: "#84cc16" },
+    { id: "keywords", label: "Keywords", icon: Search, colorKey: "#0d6b5e" },
+    { id: "competitors", label: "Competitors", icon: Users, colorKey: "#14b8a6" },
+    { id: "citations", label: "Citations", icon: Network, colorKey: "#84cc16" },
+    { id: "trust", label: "Trust", icon: Shield, colorKey: "#0d6b5e" },
 ];
 
 const outputNodes = [
@@ -74,8 +81,7 @@ export default function ArchitecturePage() {
             <div className="relative">
                 {/* Connection Lines (SVG Overlay) */}
                 <svg
-                    className="absolute inset-0 w-full h-full pointer-events-none z-10"
-                    style={{ overflow: 'visible' }}
+                    className="absolute inset-0 w-full h-full pointer-events-none z-10 svg-overflow-visible"
                 >
                     {/* Input to Context Pack */}
                     <motion.path
@@ -194,29 +200,29 @@ export default function ArchitecturePage() {
 
                             {/* Module Grid */}
                             <div className="grid grid-cols-2 gap-2">
-                                {moduleNodes.map((node, i) => (
-                                    <motion.div
-                                        key={node.id}
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 0.4 + i * 0.05 }}
-                                        onMouseEnter={() => setHoveredNode(node.id)}
-                                        onMouseLeave={() => setHoveredNode(null)}
-                                        className={cn(
-                                            "flex items-center gap-2 p-2 rounded-lg transition-all cursor-pointer",
-                                            "bg-white/60 border border-white/40",
-                                            hoveredNode === node.id && "scale-[1.05] shadow-md"
-                                        )}
-                                    >
-                                        <div
-                                            className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
-                                            style={{ backgroundColor: `${node.color}15` }}
+                                {moduleNodes.map((node, i) => {
+                                    const colors = colorClasses[node.colorKey];
+                                    return (
+                                        <motion.div
+                                            key={node.id}
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ delay: 0.4 + i * 0.05 }}
+                                            onMouseEnter={() => setHoveredNode(node.id)}
+                                            onMouseLeave={() => setHoveredNode(null)}
+                                            className={cn(
+                                                "flex items-center gap-2 p-2 rounded-lg transition-all cursor-pointer",
+                                                "bg-white/60 border border-white/40",
+                                                hoveredNode === node.id && "scale-[1.05] shadow-md"
+                                            )}
                                         >
-                                            <node.icon className="w-3.5 h-3.5" style={{ color: node.color }} />
-                                        </div>
-                                        <span className="text-xs font-medium truncate">{node.label}</span>
-                                    </motion.div>
-                                ))}
+                                            <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center shrink-0", colors.bg)}>
+                                                <node.icon className={cn("w-3.5 h-3.5", colors.text)} />
+                                            </div>
+                                            <span className="text-xs font-medium truncate">{node.label}</span>
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
 
                             {/* Analysis indicator */}

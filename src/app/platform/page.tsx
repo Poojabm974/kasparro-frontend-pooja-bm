@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { GlassCard, FeaturedCard } from "@/components/ui/glass-card";
 import { PublicHeader } from "@/components/layouts/public-header";
 import { PublicFooter } from "@/components/layouts/public-footer";
+import { cn } from "@/lib/utils";
 import {
     ArrowRight,
     Bot,
@@ -27,6 +28,7 @@ import {
     CheckCircle2,
     ChevronRight,
 } from "lucide-react";
+
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -62,15 +64,22 @@ const outputTypes = [
     { label: "Competitor Gaps", description: "Where you can win" },
 ];
 
+// Color class mappings for modules
+const colorClasses: Record<string, { bg: string; text: string }> = {
+    "#0d6b5e": { bg: "bg-teal-subtle", text: "text-teal" },
+    "#14b8a6": { bg: "bg-teal-light-subtle", text: "text-teal-light" },
+    "#84cc16": { bg: "bg-lime-subtle", text: "text-lime" },
+};
+
 // Audit modules
 const modules = [
-    { icon: FileText, name: "Content Quality", color: "#0d6b5e" },
-    { icon: Settings, name: "Technical SEO", color: "#14b8a6" },
-    { icon: Bot, name: "AI Visibility", color: "#84cc16" },
-    { icon: Search, name: "Keyword Coverage", color: "#0d6b5e" },
-    { icon: Users, name: "Competitor Analysis", color: "#14b8a6" },
-    { icon: Network, name: "Citation Network", color: "#84cc16" },
-    { icon: Shield, name: "Trust Signals", color: "#0d6b5e" },
+    { icon: FileText, name: "Content Quality", colorKey: "#0d6b5e" },
+    { icon: Settings, name: "Technical SEO", colorKey: "#14b8a6" },
+    { icon: Bot, name: "AI Visibility", colorKey: "#84cc16" },
+    { icon: Search, name: "Keyword Coverage", colorKey: "#0d6b5e" },
+    { icon: Users, name: "Competitor Analysis", colorKey: "#14b8a6" },
+    { icon: Network, name: "Citation Network", colorKey: "#84cc16" },
+    { icon: Shield, name: "Trust Signals", colorKey: "#0d6b5e" },
 ];
 
 export default function PlatformPage() {
@@ -182,24 +191,24 @@ export default function PlatformPage() {
 
                             <FeaturedCard className="p-6">
                                 <div className="grid grid-cols-2 gap-3">
-                                    {modules.map((module, i) => (
-                                        <motion.div
-                                            key={module.name}
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: i * 0.05 }}
-                                            className="flex items-center gap-2 p-2 rounded-lg bg-white/60 border border-white/40"
-                                        >
-                                            <div
-                                                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                                                style={{ background: `${module.color}15` }}
+                                    {modules.map((module, i) => {
+                                        const colors = colorClasses[module.colorKey];
+                                        return (
+                                            <motion.div
+                                                key={module.name}
+                                                initial={{ opacity: 0, scale: 0.9 }}
+                                                whileInView={{ opacity: 1, scale: 1 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: i * 0.05 }}
+                                                className="flex items-center gap-2 p-2 rounded-lg bg-white/60 border border-white/40"
                                             >
-                                                <module.icon className="w-4 h-4" style={{ color: module.color }} />
-                                            </div>
-                                            <span className="text-xs font-medium truncate">{module.name}</span>
-                                        </motion.div>
-                                    ))}
+                                                <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center", colors.bg)}>
+                                                    <module.icon className={cn("w-4 h-4", colors.text)} />
+                                                </div>
+                                                <span className="text-xs font-medium truncate">{module.name}</span>
+                                            </motion.div>
+                                        );
+                                    })}
                                 </div>
 
                                 <div className="mt-6 pt-4 border-t border-[#0d6b5e]/10 text-center">

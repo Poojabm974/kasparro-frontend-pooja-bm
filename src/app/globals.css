@@ -473,6 +473,112 @@
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     background: rgba(13, 107, 94, 0.35);
   }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     Dynamic Color Utilities (replacing inline styles)
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Module/Icon color backgrounds */
+  .bg-teal-subtle {
+    background-color: rgba(13, 107, 94, 0.08);
+  }
+
+  .bg-teal-light-subtle {
+    background-color: rgba(20, 184, 166, 0.08);
+  }
+
+  .bg-lime-subtle {
+    background-color: rgba(132, 204, 22, 0.08);
+  }
+
+  .bg-chatgpt {
+    background-color: rgba(16, 163, 127, 0.08);
+  }
+
+  .bg-gemini {
+    background-color: rgba(66, 133, 244, 0.08);
+  }
+
+  .bg-perplexity {
+    background-color: rgba(84, 54, 218, 0.08);
+  }
+
+  .bg-claude {
+    background-color: rgba(217, 119, 6, 0.08);
+  }
+
+  /* Text colors for models */
+  .text-teal {
+    color: #0d6b5e;
+  }
+
+  .text-teal-light {
+    color: #14b8a6;
+  }
+
+  .text-lime {
+    color: #84cc16;
+  }
+
+  .text-chatgpt {
+    color: #10a37f;
+  }
+
+  .text-gemini {
+    color: #4285f4;
+  }
+
+  .text-perplexity {
+    color: #5436da;
+  }
+
+  .text-claude {
+    color: #d97706;
+  }
+
+  /* Hero section radial gradients */
+  .bg-hero-glow-lime {
+    background: radial-gradient(circle, rgba(132, 204, 22, 0.15) 0%, transparent 70%);
+  }
+
+  .bg-hero-glow-teal {
+    background: radial-gradient(circle, rgba(13, 107, 94, 0.12) 0%, transparent 70%);
+  }
+
+  /* Progress bar utilities */
+  .progress-bar {
+    @apply h-2 rounded-full transition-all duration-500;
+  }
+
+  .progress-bar-branded {
+    @apply bg-[#0d6b5e];
+  }
+
+  .progress-bar-non-branded {
+    @apply bg-[#84cc16];
+  }
+
+  /* SVG container with overflow visible */
+  .svg-overflow-visible {
+    overflow: visible;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     Error States & Loading
+     ═══════════════════════════════════════════════════════════════════════════ */
+  .error-state {
+    @apply p-6 rounded-xl bg-[#dc2626]/5 border border-[#dc2626]/20 text-center;
+  }
+
+  .empty-state {
+    @apply p-8 rounded-xl bg-[#5a6b5a]/5 border border-[#5a6b5a]/10 text-center;
+  }
+
+  .loading-skeleton {
+    @apply bg-gradient-to-r from-[#0d6b5e]/5 via-[#0d6b5e]/10 to-[#0d6b5e]/5;
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

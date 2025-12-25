@@ -24,10 +24,9 @@
 
 | Environment | Link |
 |-------------|------|
-| **Live App** | [🔗 kasparro.vercel.app](https://kasparro.vercel.app) |
-| **Demo Video** | [🎬 Watch Demo](https://your-demo-link.com) |
+| **Live App** | [🔗 poojafrontend.vercel.app](https://poojafrontend.vercel.app) |
 
-> *Links will be updated after deployment*
+
 
 ---
 

@@ -47,7 +47,7 @@ People now ask ChatGPT, Gemini, Perplexity, and Claude for recommendations. Thes
 
 We listened to feedback and made significant improvements:
 
-### Before (v1) ❌
+### Before (v1) 
 
 ```
 "Strong ChatGPT Presence"
@@ -55,25 +55,25 @@ We listened to feedback and made significant improvements:
 ```
 Generic. No explanation. No actionable insight.
 
-### After (v2) ✅
+### After (v2) 
 
 ```
-📊 ChatGPT Visibility: 68%
+ ChatGPT Visibility: 68%
 
-🧠 How ChatGPT Works:
+ How ChatGPT Works:
 ChatGPT primarily relies on its training data (up to Oct 2023) and 
 prioritizes well-structured, authoritative content. Unlike search 
 engines, it doesn't crawl live — it remembers.
 
-🔍 Example Query:
+ Example Query:
 "Best AI-native SEO tools 2024"
 → Your brand appears #2 because you have strong blog authority
 
-💡 Why This Happens:
+ Why This Happens:
 Strong presence in industry publications and authoritative backlinks 
 boost ChatGPT's confidence in recommending your brand.
 
-⚡ Generate AI Analysis → [Dynamic Groq-powered insights]
+ Generate AI Analysis → [Dynamic GPT-OSS-120B-powered insights]
 ```
 
 ### Key Improvements
@@ -353,20 +353,12 @@ npm start
 
 ## 🌐 Deployment
 
-### Vercel (Recommended)
+### Vercel
 
 ```bash
 npx vercel
 ```
 
-### Docker
-
-```bash
-docker build -t kasparro .
-docker run -p 3000:3000 kasparro
-```
-
----
 
 ## 📝 Version History
 
@@ -394,11 +386,7 @@ Contributions are welcome! Please read our contributing guidelines before submit
 
 ---
 
-## 📄 License
 
-This project is proprietary. All rights reserved.
-
----
 
 <p align="center">
   <strong>Built with 💚 for the future of AI-native SEO</strong>
